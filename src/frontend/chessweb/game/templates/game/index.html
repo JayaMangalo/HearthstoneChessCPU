@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HearthstoneTM Chess</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="containergame">
+            <div class="black-king hand">
+                {% if blackkinghand %}
+                    {% for card in blackkinghand %}
+                    <div class="containerhandcard">
+                        <img src={{card.path}} class = "card">
+                        <img src="{{card.gethppath}}" class = "health">
+                    </div>
+                    {% endfor %}
+                {% endif %}          
+            </div>
+            <div class="black-king board">
+                {% if blackkingboard %}
+                    {% for card in blackkingboard %}
+                    <div class="containerboardcard">
+                        <img src={{card.path}} class = "card">
+                        <img src="{{card.gethppath}}" class = "health">
+                    </div>
+                    {% endfor %}
+                {% endif %}     
+            </div>
+            <div class="white-king board">
+                {% if whitekingboard %}
+                    {% for card,position in whitekingboard %}
+                        <div class="containerboardcard">
+                            <img src={{card.path}} class = "card">
+                            <img src="{{card.gethppath}}" class = "health">
+                            <div class ="textposition">{{position}}</div>
+                        </div>
+                    {% endfor %}
+                {% endif %} 
+            </div>
+            <div class="white-king hand">
+                {% if whitekinghand %}
+                    {% for card in whitekinghand %}
+                    <div class="containerhandcard">
+                        <img src={{card.path}} class = "card">
+                        <img src="{{card.gethppath}}" class = "health">
+                    </div>
+                    {% endfor %}
+                {% endif %}        
+            </div>
+        </div>
+    
+        <div class="containerdata">
+            <div class="black-hero-power">
+                <img src="/static/img/heropower/BlackHeroPower.png" class = "HeroPower">
+            </div>
+
+            <div class="black-king hp">BLACK KING HP: {{BKHP}}</div>
+            <div class="black-king mana">BLACK KING MANA: {{BKMANA}}/{{BKMAXMANA}}</div>
+    
+            <div class="turn">
+                <form action="/game/ENDTURN">
+                    <button >NEXT PHASE</button>
+                </form>
+            </div>
+            <div class="turn">TURN: {{TURN}}</div>
+
+            <div class="white-king hp">WHITE KING HP: {{WKHP}}</div>
+            <div class="white-king mana">WHITE KING MANA: {{WKMANA}}/{{WKMAXMANA}}</div>
+            
+            <div class="white-hero-power">
+                <img src="/static/img/heropower/WhiteHeroPower.png" class = "HeroPower">
+            </div>
+
+            <div class="action">
+                <form action="/game/" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

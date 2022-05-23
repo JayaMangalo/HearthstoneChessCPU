@@ -1,0 +1,105 @@
+*, *::after, *::before{
+    box-sizing:  border-box;
+    align-items: center;
+}
+.container{
+    display: flex;
+}
+.containergame{
+    width: 1610px;
+    height: 920px;
+    display: grid;
+    float:left;
+    justify-content: center;
+    border: 5px solid black;
+}
+.hand {
+    display: flex;
+    width: 1600px;
+    height: 205px;
+    border: 2px solid red;
+    justify-content: center;
+  }
+.hand div {
+    flex: 1;
+}
+.board {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 1450px;
+    height: 250px;
+    border: 2px solid red;
+  }
+.board div {
+    flex: 1;
+}
+.containerhandcard{
+    position: relative;
+    justify-self: center;
+    justify-content: center;
+    max-width:10%;
+}
+.containerhandcard div{
+    flex: 1;
+}
+.containerboardcard{
+    position: relative;
+    justify-self: center;
+    justify-content: center;
+    max-width:14%;
+}
+.containerboardcard div{
+    flex: 1;
+}
+.card{
+    position: relative;
+    max-width:100%;
+}
+.health{
+    position: absolute;
+    max-width:16%;
+    top: 77%;
+    left: 73%;
+    border: 10px;
+}
+.textposition{
+    position: absolute;
+    top: 80%;
+    left: 46%;
+    font-size: 30px;
+    color: blue;
+}
+
+
+.containerdata{    
+    border: 5px solid blue;
+    width: 400px;
+    height: 920px;
+    display: grid;
+    justify-content: center;
+    grid-template:
+        'blackkingpower blackkingpower'
+        'blackking blackking' 
+        'turn turn '
+        'whiteking whiteking'
+        'whitekingpower whitekingpower'
+        'action action'
+        ;
+    padding: 10px;
+
+    color: green;
+}
+
+.HeroPower{
+    justify-self: center;
+    max-width: 80% ;
+}
+.black-hero-power{ grid-area: blackkingpower; }
+.black-king-hp { grid-area: blackking; }
+.action { grid-area: action; }
+.white-king-hp { grid-area: whiteking; }
+.white-hero-power{ grid-area: whitekingpower; }
+
+
+
